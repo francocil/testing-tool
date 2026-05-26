@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="104" viewBox="0 0 120 104">
+  <defs>
+    <linearGradient id="hexLightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(1, 56, 98, 0.1)" />
+      <stop offset="100%" stop-color="rgba(0, 42, 59, 0.1)" />
+    </linearGradient>
+  </defs>
+  <polygon 
+    points="30,2 90,2 118,52 90,102 30,102 2,52"
+    fill="none"
+    stroke="url(#hexLightGrad)"
+    stroke-width="3"
+  />
+</svg>
+
