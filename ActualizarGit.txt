@@ -10,8 +10,8 @@ git push
 *************************************************************************
 secuencia desde la raíz del proyecto (testing-tool)
 *************************************************************************
-git remote add origin https://github.com/francocil/testing-tool.git
-git branch -M main
-git push -u origin main
+git add .
+git commit -m "update"
+git push
 *************************************************************************
 
