@@ -1,0 +1,350 @@
+
+================================================================================
+TABLA: public.agentes
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+dni                            character varying         NO         length=20
+cuil                           character varying         NO         length=20
+apellido_nombre                character varying         NO         length=150
+email                          character varying         NO         length=150
+reparticion_id                 integer                   NO         precision=32, scale=0
+direccion_id                   integer                   NO         precision=32, scale=0
+area_id                        integer                   NO         precision=32, scale=0
+cargo                          character varying         NO         length=150
+activo                         boolean                   NO         
+fecha_creacion                 timestamp without time zone YES        
+fecha_baja                     timestamp without time zone YES        
+creado_por_usuario_id          integer                   YES        precision=32, scale=0
+modificado_por_usuario_id      integer                   YES        precision=32, scale=0
+
+================================================================================
+TABLA: public.alembic_version
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+version_num                    character varying         NO         length=32
+
+================================================================================
+TABLA: public.api
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+nombre                         character varying         NO         length=100
+descripcion                    text                      YES        
+metodo                         character varying         NO         length=10
+base_url                       character varying         YES        length=255
+endpoint                       text                      NO         
+auth_tipo                      character varying         NO         length=20
+auth_config                    text                      YES        
+headers_por_defecto            text                      YES        
+body_ejemplo                   text                      YES        
+timeout_segundos               integer                   NO         precision=32, scale=0
+retries                        integer                   NO         precision=32, scale=0
+version                        character varying         NO         length=20
+activo                         integer                   NO         precision=32, scale=0
+fecha_creacion                 timestamp without time zone NO         
+fecha_modificacion             timestamp without time zone NO         
+creado_por_usuario_id          integer                   YES        precision=32, scale=0
+modificado_por_usuario_id      integer                   YES        precision=32, scale=0
+
+================================================================================
+TABLA: public.area
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+direccion_id                   integer                   NO         precision=32, scale=0
+nombre                         character varying         NO         length=200
+descripcion                    character varying         YES        length=500
+activo                         boolean                   NO         
+
+================================================================================
+TABLA: public.auditoria
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+usuario_id                     integer                   YES        precision=32, scale=0
+accion                         character varying         NO         length=100
+ip                             character varying         YES        length=50
+user_agent                     character varying         YES        length=300
+fecha                          timestamp without time zone YES        
+
+================================================================================
+TABLA: public.caso_prueba
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+modulo_id                      integer                   NO         precision=32, scale=0
+nombre                         character varying         NO         length=200
+objetivo                       text                      YES        
+version_actual                 integer                   NO         precision=32, scale=0
+porcentaje_aceptacion          double precision          YES        precision=53
+fecha_creacion                 timestamp without time zone NO         
+descripcion                    text                      YES        
+precondiciones                 text                      YES        
+postcondiciones                text                      YES        
+estado                         character varying         NO         length=50
+
+================================================================================
+TABLA: public.caso_prueba_version
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+caso_id                        integer                   NO         precision=32, scale=0
+nro_version                    integer                   NO         precision=32, scale=0
+objetivo                       text                      YES        
+porcentaje_aceptacion          double precision          YES        precision=53
+fecha                          timestamp without time zone NO         
+
+================================================================================
+TABLA: public.comentario
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+usuario_id                     integer                   NO         precision=32, scale=0
+ejecucion_id                   integer                   YES        precision=32, scale=0
+entidad_tipo                   USER-DEFINED              NO         
+entidad_id                     integer                   NO         precision=32, scale=0
+comentario                     text                      NO         
+fecha                          timestamp without time zone NO         
+
+================================================================================
+TABLA: public.direccion
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+reparticion_id                 integer                   NO         precision=32, scale=0
+nombre                         character varying         NO         length=200
+descripcion                    character varying         YES        length=500
+activo                         boolean                   NO         
+
+================================================================================
+TABLA: public.ejecucion
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+caso_id                        integer                   NO         precision=32, scale=0
+usuario_id                     integer                   NO         precision=32, scale=0
+fecha                          timestamp without time zone NO         
+modo                           character varying         NO         length=20
+estado                         character varying         NO         length=20
+fecha_fin                      timestamp without time zone YES        
+resultado_global               character varying         YES        length=50
+porcentaje_aceptacion          double precision          YES        precision=53
+contexto                       json                      NO         
+duracion_ms                    integer                   YES        precision=32, scale=0
+caso_version                   integer                   NO         precision=32, scale=0
+caso_nombre                    character varying         NO         length=200
+caso_objetivo                  text                      YES        
+caso_precondiciones            text                      YES        
+caso_postcondiciones           text                      YES        
+
+================================================================================
+TABLA: public.ejecucion_paso
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+ejecucion_id                   integer                   NO         precision=32, scale=0
+paso_id                        integer                   NO         precision=32, scale=0
+valor_obtenido                 text                      YES        
+fecha                          timestamp without time zone NO         
+tipo_resultado                 text                      YES        
+request_json                   json                      YES        
+response_json                  json                      YES        
+asserts_json                   json                      YES        
+errores_json                   json                      YES        
+duracion_ms                    double precision          YES        precision=53
+parametros_snapshot            json                      YES        
+asserts_snapshot               json                      YES        
+
+================================================================================
+TABLA: public.modulo
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+proyecto_id                    integer                   NO         precision=32, scale=0
+nombre                         character varying         NO         length=200
+tipo_interfaz                  character varying         NO         length=100
+tipo_gui                       character varying         NO         length=100
+descripcion                    text                      YES        
+fecha_creacion                 timestamp without time zone NO         
+estado                         character varying         NO         length=50
+responsable_id                 integer                   YES        precision=32, scale=0
+version                        integer                   NO         precision=32, scale=0
+fecha_actualizacion            timestamp without time zone NO         
+
+================================================================================
+TABLA: public.modulo_documento
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+modulo_id                      integer                   NO         precision=32, scale=0
+archivo_url                    text                      NO         
+fecha_subida                   timestamp without time zone NO         
+
+================================================================================
+TABLA: public.objeto_parametro
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+paso_id                        integer                   YES        precision=32, scale=0
+api_id                         integer                   YES        precision=32, scale=0
+tipo                           character varying         NO         length=20
+origen                         character varying         NO         length=20
+nombre                         character varying         NO         length=100
+valor_entrada                  text                      YES        
+valor_esperado                 text                      YES        
+fecha_creacion                 timestamp without time zone NO         
+
+================================================================================
+TABLA: public.paso
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+caso_id                        integer                   NO         precision=32, scale=0
+orden                          integer                   NO         precision=32, scale=0
+descripcion                    text                      NO         
+fecha_creacion                 timestamp without time zone NO         
+nombre                         character varying         NO         length=200
+tipo                           character varying         NO         length=50
+api_id                         integer                   YES        precision=32, scale=0
+parametros_json                json                      YES        
+extraccion_contexto            json                      YES        
+
+================================================================================
+TABLA: public.paso_assert
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+paso_id                        integer                   NO         precision=32, scale=0
+tipo                           character varying         NO         length=50
+expresion                      character varying         YES        length=255
+operador                       character varying         NO         length=50
+valor_esperado                 text                      YES        
+mensaje_error                  text                      YES        
+orden                          integer                   NO         precision=32, scale=0
+
+================================================================================
+TABLA: public.paso_documento
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+paso_id                        integer                   NO         precision=32, scale=0
+archivo_url                    text                      NO         
+fecha_subida                   timestamp without time zone NO         
+
+================================================================================
+TABLA: public.permiso
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+nombre                         character varying         NO         length=100
+descripcion                    character varying         NO         length=300
+activo                         boolean                   NO         
+
+================================================================================
+TABLA: public.proyecto
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+nombre                         character varying         NO         length=200
+objetivo_general               text                      YES        
+contexto                       text                      YES        
+fecha_creacion                 timestamp without time zone NO         
+estado                         character varying         NO         length=50
+version                        integer                   NO         precision=32, scale=0
+fecha_actualizacion            timestamp without time zone NO         
+reparticion_id                 integer                   YES        precision=32, scale=0
+direccion_id                   integer                   YES        precision=32, scale=0
+area_id                        integer                   YES        precision=32, scale=0
+
+================================================================================
+TABLA: public.proyecto_documento
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+proyecto_id                    integer                   NO         precision=32, scale=0
+archivo_url                    text                      NO         
+descripcion                    text                      YES        
+fecha_subida                   timestamp without time zone NO         
+
+================================================================================
+TABLA: public.reparticion
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+nombre                         character varying         NO         length=200
+descripcion                    character varying         YES        length=500
+activo                         boolean                   NO         
+fecha_creacion                 timestamp without time zone NO         
+fecha_modificacion             timestamp without time zone NO         
+
+================================================================================
+TABLA: public.rol
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+nombre                         character varying         NO         length=50
+
+================================================================================
+TABLA: public.rol_permiso
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+rol_id                         integer                   NO         precision=32, scale=0
+permiso_id                     integer                   NO         precision=32, scale=0
+
+================================================================================
+TABLA: public.usuario
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+nombre                         character varying         NO         length=120
+email                          character varying         NO         length=255
+password_hash                  character varying         NO         length=255
+activo                         boolean                   NO         
+fecha_creacion                 timestamp without time zone NO         
+fecha_actualizacion            timestamp without time zone NO         
+agente_id                      integer                   YES        precision=32, scale=0
+
+================================================================================
+TABLA: public.usuario_proyecto
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+usuario_id                     integer                   NO         precision=32, scale=0
+proyecto_id                    integer                   NO         precision=32, scale=0
+fecha_asignacion               timestamp without time zone NO         
+
+================================================================================
+TABLA: public.usuario_rol
+================================================================================
+COLUMNA                        TIPO                      NULLABLE   DETALLE
+--------------------------------------------------------------------------------
+id                             integer                   NO         precision=32, scale=0
+usuario_id                     integer                   NO         precision=32, scale=0
+rol_id                         integer                   NO         precision=32, scale=0

@@ -1,0 +1,6 @@
+Ejecutar desde la carpeta backend
+python -m db.seed.seed_inicial
+
+
+Email: admin@local.com
+Password: admin123

@@ -1,0 +1,335 @@
+testing-tool
+├── backend
+│   ├── .pytest_cache
+│   │   ├── v
+│   │   │   └── cache
+│   │   │       ├── lastfailed
+│   │   │       └── nodeids
+│   │   ├── .gitignore
+│   │   ├── CACHEDIR.TAG
+│   │   └── README.md
+│   ├── alembic
+│   │   ├── versions
+│   │   │   ├── 0c079acd217f_add_contexto_to_ejecucion.py
+│   │   │   ├── 2026_05_07_add_paso_assert.py
+│   │   │   ├── 71afbb460902_update_tabla_caso_prueba.py
+│   │   │   ├── 7f986a91f9e7_agregar_campo_cuil_a_agentes_04_05_2026.py
+│   │   │   ├── 96a7a6174411_update_models_proyecto_modulo_caso_paso_.py
+│   │   │   ├── d354badf8a3e_add_api_id_to_paso.py
+│   │   │   ├── da6e58363133_add_contexto_to_ejecucion.py
+│   │   │   ├── dda5977de82a_add_contexto_to_ejecucion_01.py
+│   │   │   ├── edbfbf831b81_05_05_2026.py
+│   │   │   └── edbfbf831b82_create_api_version_table.py
+│   │   ├── env.py
+│   │   ├── README
+│   │   └── script.py.mako
+│   ├── api
+│   │   └── v1
+│   │       ├── api_v1.py
+│   │       └── auth.py
+│   ├── core
+│   │   ├── audit_middleware.py
+│   │   ├── auth.py
+│   │   ├── deps.py
+│   │   ├── permissions.py
+│   │   └── security.py
+│   ├── db
+│   │   ├── seed
+│   │   │   ├── como_Ejecutar_Seed.txt
+│   │   │   └── seed_inicial.py
+│   │   ├── base.py
+│   │   └── session.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   ├── agente.py
+│   │   ├── api_version.py
+│   │   ├── area.py
+│   │   ├── auditoria.py
+│   │   ├── caso_prueba.py
+│   │   ├── caso_prueba_version.py
+│   │   ├── comentario.py
+│   │   ├── direccion.py
+│   │   ├── ejecucion.py
+│   │   ├── ejecucion_paso.py
+│   │   ├── modulo.py
+│   │   ├── modulo_documento.py
+│   │   ├── my_api.py
+│   │   ├── objeto_parametro.py
+│   │   ├── paso.py
+│   │   ├── paso_assert.py
+│   │   ├── paso_documento.py
+│   │   ├── permiso.py
+│   │   ├── proyecto.py
+│   │   ├── proyecto_documento.py
+│   │   ├── reparticion.py
+│   │   ├── rol.py
+│   │   ├── rol_permiso.py
+│   │   ├── usuario.py
+│   │   ├── usuario_proyecto.py
+│   │   └── usuario_rol.py
+│   ├── routes
+│   │   ├── agente.py
+│   │   ├── api_version.py
+│   │   ├── area.py
+│   │   ├── auditoria.py
+│   │   ├── caso_prueba.py
+│   │   ├── caso_prueba_version.py
+│   │   ├── comentario.py
+│   │   ├── direccion.py
+│   │   ├── ejecucion.py
+│   │   ├── ejecucion_paso.py
+│   │   ├── modulo.py
+│   │   ├── modulo_documento.py
+│   │   ├── my_api.py
+│   │   ├── objeto_parametro.py
+│   │   ├── paso.py
+│   │   ├── paso_assert.py
+│   │   ├── paso_documento.py
+│   │   ├── permiso.py
+│   │   ├── proyecto.py
+│   │   ├── proyecto_documento.py
+│   │   ├── reparticion.py
+│   │   ├── rol.py
+│   │   ├── rol_permiso.py
+│   │   ├── usuario.py
+│   │   └── usuario_rol.py
+│   ├── schemas
+│   │   ├── __init__.py
+│   │   ├── agente.py
+│   │   ├── api_version.py
+│   │   ├── area.py
+│   │   ├── auditoria.py
+│   │   ├── auth.py
+│   │   ├── caso_prueba.py
+│   │   ├── caso_prueba_version.py
+│   │   ├── comentario.py
+│   │   ├── direccion.py
+│   │   ├── ejecucion.py
+│   │   ├── ejecucion_paso.py
+│   │   ├── modulo.py
+│   │   ├── modulo_documento.py
+│   │   ├── my_api.py
+│   │   ├── objeto_parametro.py
+│   │   ├── paso.py
+│   │   ├── paso_assert.py
+│   │   ├── paso_documento.py
+│   │   ├── permiso.py
+│   │   ├── proyecto.py
+│   │   ├── proyecto_documento.py
+│   │   ├── reparticion.py
+│   │   ├── rol.py
+│   │   ├── rol_permiso.py
+│   │   ├── usuario.py
+│   │   ├── usuario_proyecto.py
+│   │   └── usuario_rol.py
+│   ├── services
+│   │   ├── agente.py
+│   │   ├── api_version.py
+│   │   ├── area.py
+│   │   ├── auditoria.py
+│   │   ├── caso_prueba.py
+│   │   ├── caso_prueba_version.py
+│   │   ├── comentario.py
+│   │   ├── direccion.py
+│   │   ├── ejecucion.py
+│   │   ├── ejecucion_paso.py
+│   │   ├── file_service.py
+│   │   ├── modulo.py
+│   │   ├── modulo_documento.py
+│   │   ├── motor_ejecucion.py
+│   │   ├── my_api.py
+│   │   ├── objeto_parametro.py
+│   │   ├── paso.py
+│   │   ├── paso_assert.py
+│   │   ├── paso_documento.py
+│   │   ├── permiso.py
+│   │   ├── proyecto.py
+│   │   ├── proyecto_documento.py
+│   │   ├── reparticion.py
+│   │   ├── rol.py
+│   │   ├── rol_permiso.py
+│   │   ├── usuario.py
+│   │   ├── usuario_proyecto.py
+│   │   └── usuario_rol.py
+│   ├── tests
+│   │   ├── routes
+│   │   │   ├── test_caso_prueba.py
+│   │   │   ├── test_caso_prueba_version.py
+│   │   │   ├── test_comentario.py
+│   │   │   ├── test_ejecucion.py
+│   │   │   ├── test_ejecucion_paso.py
+│   │   │   ├── test_modulo.py
+│   │   │   ├── test_modulo_documento.py
+│   │   │   ├── test_motor_ejecucion.py
+│   │   │   ├── test_my_api.py
+│   │   │   ├── test_objeto_parametro.py
+│   │   │   ├── test_paso.py
+│   │   │   ├── test_paso_documento.py
+│   │   │   ├── test_proyecto.py
+│   │   │   ├── test_proyecto_documento.py
+│   │   │   ├── test_rol.py
+│   │   │   └── test_usuario.py
+│   │   ├── services
+│   │   │   ├── test_caso_prueba.py
+│   │   │   ├── test_caso_prueba_version.py
+│   │   │   ├── test_ejecucion.py
+│   │   │   ├── test_ejecucion_paso.py
+│   │   │   ├── test_modulo.py
+│   │   │   ├── test_modulo_documento.py
+│   │   │   ├── test_motor_ejecucion.py
+│   │   │   ├── test_objeto_parametro.py
+│   │   │   ├── test_paso.py
+│   │   │   ├── test_paso_documento.py
+│   │   │   ├── test_proyecto.py
+│   │   │   ├── test_proyecto_documento.py
+│   │   │   ├── test_rol.py
+│   │   │   └── test_usuario.py
+│   │   ├── __init__.py
+│   │   └── conftest.py
+│   ├── uploads
+│   │   └── [contenido oculto]
+│   ├── venv
+│   │   └── [contenido oculto]
+│   ├── alembic.ini
+│   ├── crear_hash.py
+│   ├── main.py
+│   ├── normalize_backend.py
+│   └── reset_backend.sh
+├── frontend
+│   ├── public
+│   │   ├── patterns
+│   │   │   ├── pattern-dark.svg
+│   │   │   └── pattern-light.svg
+│   │   ├── EscudoTucuman-white.png
+│   │   ├── EscudoTucuman.png
+│   │   ├── favicon.svg
+│   │   ├── icons.svg
+│   │   ├── logo-gobierno-azul.png
+│   │   └── logo-gobierno.png
+│   ├── src
+│   │   ├── api
+│   │   │   ├── agentes.js
+│   │   │   ├── apiVersion.js
+│   │   │   ├── areas.js
+│   │   │   ├── auth.js
+│   │   │   ├── axiosClient.js
+│   │   │   ├── casosPrueba.js
+│   │   │   ├── dashboard.js
+│   │   │   ├── direcciones.js
+│   │   │   ├── ejecuciones.js
+│   │   │   ├── moduloDocumentos.js
+│   │   │   ├── modulos.js
+│   │   │   ├── objeto_parametro.js
+│   │   │   ├── paso_assert.js
+│   │   │   ├── pasoDocumentos.js
+│   │   │   ├── pasos.js
+│   │   │   ├── permisos.js
+│   │   │   ├── proyectoDocumentos.js
+│   │   │   ├── proyectos.js
+│   │   │   ├── reparticiones.js
+│   │   │   ├── roles.js
+│   │   │   ├── rolPermiso.js
+│   │   │   └── usuarioRol.js
+│   │   ├── assets
+│   │   │   ├── hero.png
+│   │   │   ├── react.svg
+│   │   │   └── vite.svg
+│   │   ├── components
+│   │   │   ├── dashboard
+│   │   │   │   ├── KpiCard.jsx
+│   │   │   │   ├── LastExecutionCard.jsx
+│   │   │   │   ├── QuickActionCard.jsx
+│   │   │   │   ├── ResultsBarChart.jsx
+│   │   │   │   ├── ResultsPieChart.jsx
+│   │   │   │   └── StatusCard.jsx
+│   │   │   ├── documents
+│   │   │   │   ├── DocumentList.jsx
+│   │   │   │   └── DocumentUploader.jsx
+│   │   │   ├── layout
+│   │   │   │   ├── AppLayout.jsx
+│   │   │   │   ├── Header.jsx
+│   │   │   │   └── Sidebar.jsx
+│   │   │   ├── permissions
+│   │   │   │   ├── PermissionGuard.jsx
+│   │   │   │   └── RequirePermission.jsx
+│   │   │   ├── steps
+│   │   │   │   ├── ApiSelector.jsx
+│   │   │   │   ├── StepDetail.jsx
+│   │   │   │   ├── StepForm.jsx
+│   │   │   │   └── StepList.jsx
+│   │   │   ├── PrivateRoute.jsx
+│   │   │   └── RoleRoute.jsx
+│   │   ├── context
+│   │   │   └── PermissionContext.jsx
+│   │   ├── guards
+│   │   │   ├── AuthGuard.jsx
+│   │   │   └── PermissionGuard.jsx
+│   │   ├── hooks
+│   │   │   ├── useAuth.js
+│   │   │   ├── useLogout.js
+│   │   │   └── usePermission.js
+│   │   ├── pages
+│   │   │   ├── administracion
+│   │   │   │   ├── AdminDashboard.jsx
+│   │   │   │   ├── Agentes.jsx
+│   │   │   │   ├── Parametros.jsx
+│   │   │   │   ├── RoleForm.jsx
+│   │   │   │   ├── RolePermissionEditor.jsx
+│   │   │   │   ├── RolesPage.jsx
+│   │   │   │   ├── UsuarioRolEditor.jsx
+│   │   │   │   └── UsuariosPage.jsx
+│   │   │   ├── apis
+│   │   │   │   ├── components
+│   │   │   │   │   ├── ApiVersionDiff.jsx
+│   │   │   │   │   └── ApiVersionList.jsx
+│   │   │   │   ├── ApiDetail.jsx
+│   │   │   │   ├── ApiForm.jsx
+│   │   │   │   ├── ApiList.jsx
+│   │   │   │   └── ApiTester.jsx
+│   │   │   ├── casos
+│   │   │   │   ├── CaseDetail.jsx
+│   │   │   │   ├── CaseExecution.jsx
+│   │   │   │   ├── CaseForm.jsx
+│   │   │   │   └── CaseList.jsx
+│   │   │   ├── dashboard
+│   │   │   │   └── Dashboard.jsx
+│   │   │   ├── ejecuciones
+│   │   │   │   ├── EjecucionDetail.jsx
+│   │   │   │   └── PasoEjecucionDetail.jsx
+│   │   │   ├── Login
+│   │   │   │   └── Login.jsx
+│   │   │   ├── modulos
+│   │   │   │   ├── ModuleDetail.jsx
+│   │   │   │   ├── ModuleForm.jsx
+│   │   │   │   └── ModuleList.jsx
+│   │   │   ├── proyectos
+│   │   │   │   ├── ProjectDetail.jsx
+│   │   │   │   ├── ProjectForm.jsx
+│   │   │   │   └── ProjectList.jsx
+│   │   │   └── unauthorized
+│   │   │       └── Unauthorized.jsx
+│   │   ├── router
+│   │   │   ├── AppRouter.jsx
+│   │   │   └── ProtectedRoute.jsx
+│   │   ├── store
+│   │   │   ├── authSlice.js
+│   │   │   └── store.js
+│   │   ├── styles
+│   │   │   └── globals.css
+│   │   ├── theme
+│   │   │   └── theme.js
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
+│   ├── package.json
+│   ├── README.md
+│   └── vite.config.js
+├── Estructura.txt
+├── EstructuraDeTablas.txt
+├── my_tables.py
+├── package.json
+└── tree.py
